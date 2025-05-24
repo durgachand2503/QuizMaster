@@ -1,0 +1,169 @@
+/* Fade Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Slide Animations */
+@keyframes slideInRight {
+  from {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutLeft {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Scale Animations */
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleOut {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* Applied Animations */
+.screen.active {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.category-card {
+  animation: scaleIn 0.4s ease-out forwards;
+}
+
+.option {
+  animation: slideInRight 0.3s ease-out forwards;
+  animation-delay: calc(var(--index) * 0.1s);
+}
+
+.option.selected {
+  animation: pulse 0.4s;
+}
+
+.score-progress {
+  animation: scoreReveal 1.5s ease-out forwards;
+}
+
+@keyframes scoreReveal {
+  from {
+    stroke-dashoffset: 283;
+  }
+  to {
+    stroke-dashoffset: var(--score-offset);
+  }
+}
+
+/* Screen Transitions */
+.screen-exit {
+  animation: fadeOut 0.3s ease-in forwards;
+}
+
+.screen-enter {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Modal Animations */
+.modal.active {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.modal-content {
+  animation: scaleIn 0.3s ease-out forwards;
+}
+
+/* Timer Animation */
+@keyframes timerWarning {
+  0%, 100% {
+    stroke: var(--color-warning-500);
+  }
+  50% {
+    stroke: var(--color-error-500);
+  }
+}
+
+.timer-progress.warning {
+  animation: timerWarning 1s ease-in-out infinite;
+}
+
+/* Result item animations */
+.review-item {
+  animation: slideInLeft 0.4s ease-out forwards;
+  animation-delay: calc(var(--index) * 0.1s);
+  opacity: 0;
+}
